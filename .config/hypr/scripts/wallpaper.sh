@@ -13,7 +13,7 @@
 cache_file="$HOME/.cache/current_wallpaper"
 blurred="$HOME/.cache/blurred_wallpaper.png"
 rasi_file="$HOME/.cache/current_wallpaper.rasi"
-blur_file="$HOME/dotfiles/.settings/blur.sh"
+blur_file="$HOME/.config/.settings/blur.sh"
 
 blur="50x30"
 blur=$(cat $blur_file)
@@ -50,7 +50,7 @@ case $1 in
         selected=$( find "$HOME/wallpaper" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec basename {} \; | sort -R | while read rfile
         do
             echo -en "$rfile\x00icon\x1f$HOME/wallpaper/${rfile}\n"
-        done | rofi -dmenu -i -replace -config ~/dotfiles/rofi/config-wallpaper.rasi)
+        done | rofi -dmenu -i -replace -config ~/.config/rofi/config-wallpaper.rasi)
         if [ ! "$selected" ]; then
             echo "No wallpaper selected"
             exit
@@ -79,7 +79,7 @@ newwall=$(echo $wallpaper | sed "s|$HOME/wallpaper/||g")
 # ----------------------------------------------------- 
 # Reload waybar with new colors
 # -----------------------------------------------------
-~/dotfiles/waybar/launch.sh
+~/.config/waybar/launch.sh
 
 # ----------------------------------------------------- 
 # Set the new wallpaper
@@ -88,7 +88,7 @@ transition_type="wipe"
 # transition_type="outer"
 # transition_type="random"
 
-wallpaper_engine=$(cat $HOME/dotfiles/.settings/wallpaper-engine.sh)
+wallpaper_engine="swww"
 if [ "$wallpaper_engine" == "swww" ] ;then
     # swww
     echo ":: Using swww"
@@ -102,9 +102,9 @@ elif [ "$wallpaper_engine" == "hyprpaper" ] ;then
     # hyprpaper
     echo ":: Using hyprpaper"
     killall hyprpaper
-    wal_tpl=$(cat $HOME/dotfiles/.settings/hyprpaper.tpl)
+    wal_tpl=$(cat $HOME/.config/.settings/hyprpaper.tpl)
     output=${wal_tpl//WALLPAPER/$wallpaper}
-    echo "$output" > $HOME/dotfiles/hypr/hyprpaper.conf
+    echo "$output" > $HOME/.config/hypr/hyprpaper.conf
     hyprpaper &
 else
     echo ":: Wallpaper Engine disabled"
