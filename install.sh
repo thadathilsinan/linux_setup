@@ -119,7 +119,19 @@ done
 echo "Installing dotfiles..."
 mkdir ~/dotfiles-clone
 cd ~/dotfiles-clone
+
+echo "Downloading dotfiles..."
 output="$(git clone https://github.com/thadathilsinan/linux_setup.git 2>&1)"
+exit_code=$?
+if [ $exit_code != 0 ]; then
+	echo "Cannot download the dotfiles. Try again.."
+        cd ~
+	rm -rf ~/dotfiles-clone
+	exit 1
+else
+        echo "Dotfiles downloaded."
+fi
+
 cd linux_setup
 
 yes | cp -rf ./.config ~/
