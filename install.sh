@@ -43,6 +43,8 @@ echo "Updating package cache..."
 output="$(sudo pacman -Syy 2>&1)"
 echo "Packages cache update successful."
 
+installYay
+
 echo "Installing required packages...."
 
 packages=(ttf-firacode-nerd
