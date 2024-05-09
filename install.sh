@@ -25,7 +25,7 @@ function install() {
 # Define the function to install the yay package
 function installYay() {
 	echo "Install yay..."
-	output="$(sudo pacman -S --needed base-devel git 2>&1)"
+	output="$(sudo pacman -S --needed --noconfirm base-devel git 2>&1)"
 	mkdir ~/temp-dir
 	cd ~/temp-dir
 	output="$(git clone https://aur.archlinux.org/yay.git 2>&1)"
