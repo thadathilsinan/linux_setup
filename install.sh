@@ -40,7 +40,7 @@ if [ "$confirmation_lowercase" == "y" ];
 then
 
 echo "Updating package cache..."
-#output="$(sudo pacman -Syy 2>&1)"
+output="$(sudo pacman -Syy 2>&1)"
 echo "Packages cache update successful."
 
 echo "Installing required packages...."
