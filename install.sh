@@ -48,6 +48,8 @@ installYay
 echo "Installing required packages...."
 
 packages=(ttf-firacode-nerd
+unzip
+xdg-user-dirs
 ttf-fira-sans
 pavucontrol
 xautolock

@@ -24,7 +24,7 @@ bind = $mainMod SHIFT, left, resizeactive, -100 0
 bind = $mainMod SHIFT, up, resizeactive, 0 -100
 bind = $mainMod SHIFT, down, resizeactive, 0 100
 bind = $mainMod, G, togglegroup
-bind = $mainMod, L, exec, (ps -ef | grep ' hyprlock$' || hyprlock)
+bind = $mainMod, L, exec, killall hyprlock ||s hyprlock&
 
 # Actions
 bind = , PRINT, exec, ~/.config/hypr/scripts/screenshot.sh
