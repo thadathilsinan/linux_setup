@@ -6,6 +6,7 @@ PS1='[\u@\h \W]\$ '
 export EDITOR=nvim
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
+export CHROME_EXECUTABLE=$(which google-chrome-stable)
 
 # -----------------------------------------------------
 # START STARSHIP
