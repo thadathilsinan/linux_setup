@@ -2,9 +2,7 @@
 [[ $- != *i* ]] && return
 PS1='[\u@\h \W]\$ '
 
-# Define Editor
-export EDITOR=nvim
-
+export QT_QPA_PLATFORM="wayland;xcb"
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export CHROME_EXECUTABLE=$(which google-chrome-stable)
 
