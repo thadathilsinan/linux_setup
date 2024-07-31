@@ -113,7 +113,6 @@ swww
 swww-debug
 upower
 waybar
-wal
 wlogout)
 
 for package in ${packages[@]}; do
